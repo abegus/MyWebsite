@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="css/stylesheet.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
+    crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ=="
+    crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+</head>
+
+<body>
+  <title>Welcome To My Website</title>
+  <h1 class="page header" style="text-align: center; background:black; color:white; margin-top:0px; padding:25px">Welcome To My Website<small id="titlePage">Login</small></h1>
+  <ul class="nav nav-tabs" style="margin-bottom:20px">
+    <li role="presentation" class="active" id="logintab"><a>Login</a></li>
+    <li role="presentation" id="bioTab"><a onclick="showPicturePage()">More About Me</a></li>
+    <li role="presentation" id="projectsTab"><a onclick="showGame()">Projects</a></li>
+    <li role="presentation" style="float:right; margin-right:25px;background:black;color:white;padding:5px;border-radius:5px;">
+      <div id="userInformation"></div>
+    </li>
+  </ul>
+
+  <div class="panel panel-primary" id="loginPage" style="margin:auto;width: 60%; margin-top: 100px">
+    <div class="panel-heading">Enter Your Information Please</div>
+    <div class="panel-body">
+      <div class="panel panel-primary" style="width: 180px; margin:auto;">
+        <div class="panel-heading">Username:</div>
+        <input type="textbox" id="username" class="panel-body" value=""></input>
+      </div>
+      <div class="panel panel-primary" style="width:180px; margin:auto;">
+        <div class="panel-heading">Password:</div>
+        <input type="textbox" id="password" class="panel-body" value=""></input>
+      </div>
+      <button class="btn btn-default btn-lg" type="button" onclick="login()" style="margin:auto;width:180px">Login</button>
+    </div>
+  </div>
+
+
+
+  <div class="container" id="pictureSetup">
+
+    <div class="col-md-5" id="addAnother" style="background:black; border-radius:5px;border:2px solid grey;height:50px;padding:5px;">
+      <div>
+        <span style="color:white">Click to add another picture</span>
+        <span class="btn btn-default" onclick="addAnother()">Add</span>
+      </div>
+    </div>
+    <div class="col-md-5" id="addAnother" style="background:black; border-radius:5px;border:2px solid grey;height:50px;padding:5px;">
+      <div>
+        <span style="color:white">There MUST be an image with a tag 'back'. The other images MUST have a tag 'front'</span>
+      </div>
+    </div>
+
+    <div class="col-md-5" id="pic0">
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <label for="basic-url">Name of Tag</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="tagName" aria-describedby="basic-addon3">
+            </div>
+            <div class="input-group" id="removeIf">
+              <form>
+                <input type="file" id="fileInput" name="file">
+                <span class="btn btn-primary" onclick="sendPictures(this)">Create Picture</span>
+              </form>
+            </div>
+            <div class="input-group">
+              <span class="btn btn-primary" onclick="createTag(this)">Create Tag</span>
+            </div>
+            <div class="input-group">
+              <span class="btn btn-primary" onclick="getTags(this)">Refresh Current Tags</span>
+            </div>
+            <div class="input-group">
+              <span class="btn btn-danger" onclick="deleteTag(this)">Delete Tag</span>
+            </div>
+            <div class="input-group">
+              <span class="btn btn-danger" onclick="deleteImage(this)">Delete Image</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="col-md-6">
+            <img alt="upload Image" id="previewImage" height="150" width="150">
+            <div id="allTags"></div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+ 		start();
+ 	</script>
+</body>
+
+</html>
